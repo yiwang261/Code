@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wang.Mapper.StudentMapper">
+<!--
+    List<Student>   SelectById(Long id);
+    List<Student>   SelectByName(String name);
+    List<Student>   SelectByBirth(Date birth);
+    List<Student>   SelectBySex(Character sex);
+-->
+    <select id="SelectById" resultType="Student" parameterType="java.lang.Long">
+        select id, name, age, height, birth, sex from wang.t_student where id=#{id}
+    </select>
+
+<!--    这个parameterType可以不写 mybatis可以推断-->
+    <insert id="insertByMap" parameterType="java.util.Map">
+        insert into wang.t_student (id, name, age, height, birth, sex)values(null,#{姓名},#{年龄},#{身高},#{生日},#{性别})
+    </insert>
+
+<!--    通过Pojo类进行插入数据
+        经过测试得知这个参数类型也可以不写  mybatis也写好了-->
+    <insert id="insertByPojo" parameterType="com.wang.POJO.Student">
+        insert into wang.t_student (name, age, height, birth, sex) VALUES (#{name},#{age},#{height},#{birth},#{sex})
+    </insert>
+
+    <select id="selectByNameAndSex" resultType="Student">
+<!--        select * from wang.t_student where name=#{arg0} and sex=#{arg1} -->
+        select * from wang.t_student where name=#{param1} and sex=#{param2}
+    </select>
+
+
+<!--    使用@Param注解的时候可以直接写参数名-->
+    <select id="selectByNameAndSexUseParam" resultType="Student">
+        select * from wang.t_student where name=#{name} and sex=#{sex}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookMapper" class="com.wang.Mapper.Impl.BookMapperImpl"/>
+    <bean id="userMapperImpl" class="com.wang.Mapper.UserMapper"/>
+
+    <bean id="bookService" class="com.wang.Service.Impl.BookServiceImpl">
+        <property name="bookMapper" ref="bookMapper"/>
+    </bean>
+
+
+
+    <bean id="csService" class="com.wang.Service.CustomerService">
+<!--        <constructor-arg index="0" ref="bookMapper"/>-->
+<!--        <constructor-arg index="1" ref="userMapperImpl"/>-->
+        <constructor-arg name="bookMapper" ref="bookMapper"/>
+        <constructor-arg name="userMapperImpl" ref="userMapperImpl"/>
+    </bean>
+
+    <bean id="user" class="com.wang.Bean.User">
+        <property name="username" value="张三"/>
+        <property name="password" value="aaasd"/>
+        <property name="age" value="111"/>
+    </bean>
+
+    <import resource="massageSource.xml"/>
+<!--    <bean id="goods" class="com.wang.Bean.Goods"/>-->
+</beans>

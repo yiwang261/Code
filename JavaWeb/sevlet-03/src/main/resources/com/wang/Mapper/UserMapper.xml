@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.Mapper.UserMapper" >
+
+    <select id="Login">
+        select username name,password  from wang.t_user where username = #{name} and password = #{password}
+    </select>
+
+    <select id="select" resultType="User">
+        select username name, password from wang.t_user where username = #{name} and password = #{password}
+    </select>
+
+    <insert id="insert">
+        insert into wang.t_user values (#{name},#{password})
+    </insert>
+
+</mapper>

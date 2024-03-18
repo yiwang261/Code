@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+    <!--   起别名    -->
+<!--    <typeAliases>-->
+<!--        <package name="com.wang.Mapper"/>-->
+<!--        将整个包里的类都取别名 只有类名 没有com.wang之类的东西-->
+<!--        &lt;!&ndash;  alias可以不写 不写的话就是类名 下面这个就是CarMapper-->
+<!--                不区分大小写-->
+<!--        &ndash;&gt;-->
+<!--       <typeAlias type="com.wang.MybatisCache.Mapper.CarMapper" alias="CarMapper"/>-->
+<!--    </typeAliases>-->
+
+    <environments default="wang">
+
+        <environment id="wang">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <mappers>
+<!--        <mapper resource="CarMapper.xml"/>-->
+        <package name="com.wang.Mapper"/>
+    </mappers>
+
+</configuration>

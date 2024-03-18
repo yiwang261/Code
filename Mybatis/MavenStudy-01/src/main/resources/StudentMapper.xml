@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StudentMapper">
+    <select id="selectAll" resultType="com.wang.POJO.Student">
+        select s_id Id,s_name Name,s_from  Fromm,s_phone PhoneNumber,s_age Age from student
+    </select>
+    <select id="selectByName" resultType="com.wang.POJO.Student">
+        select s_id Id,s_name Name,s_from  'From',s_phone PhoneNumber,s_age Age from student where s_name=#{Name}
+    </select>
+    <update id="updateById">
+        update student set s_name=#{Name},s_from=#{Fromm},s_phone=#{PhoneNumber},s_age=#{Age}
+        where s_id=#{Id}
+    </update>
+
+    <insert id="insertStudent">
+        insert into student values (#{Id},#{Name},#{From},#{PhoneNumber},#{Age});
+    </insert>
+
+    <delete id="deleteById">
+        delete from student where s_id=#{Id}
+    </delete>
+
+</mapper>

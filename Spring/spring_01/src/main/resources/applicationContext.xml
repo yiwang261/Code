@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookMapper" class="com.wang.Mapper.Impl.BookMapperImpl"/>
+
+    <bean id="bookService" class="com.wang.Service.Impl.BookServiceImpl">
+        <property name="bookMapper" ref="bookMapper"/>
+    </bean>
+
+<!--    <bean id="user" class="com.wang.Bean.User"/>-->
+
+
+
+<!--简单工厂模式 aka：静态工厂模式-->
+<!--    <bean id="user" class="com.wang.Bean.UserFactory" factory-method="getUser"/>-->
+
+<!--    实例工厂模式 aka：工厂方法模式-->
+    <bean id="gunFactory" class="com.wang.Bean.GunFactory"/>
+    <bean id="gun" factory-bean="gunFactory" factory-method="getGun"/>
+
+
+<!--    通过FactoryBean实现-->
+<!--    实现了FactoryBean接口 符合Spring所需要的东西 就可以直接使用-->
+    <bean id="person" class="com.wang.Bean.PersonFactory"/>
+
+
+
+
+    <bean id="dateFactoryBean" class="com.wang.Bean.DateFactoryBean">
+        <constructor-arg name="strDate" value="2023-08-09"/>
+    </bean>
+
+    <bean id="student" class="com.wang.Bean.Student">
+        <property name="birth" ref="dateFactoryBean"/>
+    </bean>
+
+
+
+
+</beans>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wang.MybatisCache.Mapper.CarMapper" >
+
+
+
+<!--
+    1.专门定义一个结果集映射，在这个结果集映射当中指定数据库字段名和Java类中的属性名的对应关系
+    2.type属性用来指定Pojo类的别名
+    3.id属性：指定resultMap的唯一表示，这个id在select标签中使用
+    4.写了resultMap之后就不需要写resultType和取别名了 比较方便
+-->
+    <resultMap id="carResultMap" type="Car">
+<!--        如果有主键的话推荐使用id标签
+            这样可以提高执行效率          -->
+        <id property="id" column="id" />
+<!--        property是pojo类中的属性名
+            column是数据中的字段名
+-->
+        <result property="carNum" column="car_num" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="brand" column="brand"/>
+        <result property="guidePrice" column="guide_price"/>
+        <result property="produceTime" column="produce_time"/>
+        <result property="carType" column="car_type"/>
+    </resultMap>
+
+
+    <delete id="deleteBachWithOr">
+        delete from wang.t_car where
+        <foreach collection="ids" item="id" separator="or">
+            id = #{id}
+        </foreach>
+    </delete>
+
+<!--        int insertBach(@Param("cars") List<Car> cars);  -->
+    <insert id="insertBach">
+        insert into wang.t_car values
+         <foreach collection="cars" item="car" separator="," >
+             (null, #{car.carNum}, #{car.brand}, #{car.guidePrice}, #{car.produceTime}, #{car.carType})
+         </foreach>
+    </insert>
+    
+<!--        public void DeleteByIds(Long []ids);    -->
+<!--    foreach表中的属性
+            collection：指定数组或者集合
+            item：代表数组或者集合中的元素
+            separator： 循环之间的分隔符
+-->
+    <delete id="DeleteByIds">
+        delete from wang.t_car where id in
+            <foreach collection="ids" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+    </delete>
+    
+<!--    List<Car> selectByChoose(String brand, Double guidePrice, String carType);   -->
+    <select id="selectByChoose" parameterType="Car" resultMap="carResultMap">
+        select * from wang.t_car
+        <where>
+            <choose>
+                <when test="brand !=  null and brand !=''">brand like "%"#{brand}"%"</when>
+                <when test="guidePrice != null and guidePrice != ''">guidePrice = #{guidePrice}</when>
+                <otherwise>carType = #{carType}</otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+
+    <update id="Update">
+        update wang.t_car
+        set car_num = #{carNum},
+            brand = #{brand},
+            guide_price = #{guidePrice},
+            produce_time = #{produceTime},
+            car_type = #{carType}
+        where id = #{id}
+    </update>
+
+<!--    Set标签
+        不能全部为空
+-->
+    <update id="UpdateBySet" >
+        update wang.t_car
+        <set>
+            <if test="carNum != null and carNum !='' ">
+                car_num = #{carNum},
+            </if>
+
+            <if test="brand != null and brand !='' ">
+                brand = #{brand},
+            </if>
+
+            <if test="guidePrice != null and guidePrice !='' ">
+                guide_price = #{guidePrice},
+            </if>
+
+            <if test="produceTime != null and produceTime !='' ">
+                produce_time = #{produceTime},
+            </if>
+
+            <if test="carType != null and carType !='' ">
+                car_Type = #{carType},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--    @Param("brand") String brand,@Param("guidePrice") Double guidePrice,@Param("carType") String carType    -->
+    <select id="selectByManyParam" resultMap="carResultMap" >
+        select * from wang.t_car
+        <where>
+            <if test="brand != null and brand !='' ">
+                brand like "%"#{brand}"%"
+            </if>
+            <if test="guidePrice != null and guidePrice !='' ">
+                and guidePrice = #{guidePrice}
+            </if>
+            <if test="carType != null and carType !='' ">  <!-- carType != '' 里面不能加空格-->
+                and carType = #{carType}
+            </if>
+        </where>
+    </select>
+
+
+<!--    select标签中的resultMap标签就是用来指定使用哪个结果映射
+        select标签中的resultMap后面跟的是上面的resultMap的id-->
+    <select id="selectAllByResultMap" resultMap="carResultMap" >
+        select * from wang.t_car
+    </select>
+
+
+
+    <select id="selectAllRetMap" resultType="map">
+        select * from wang.t_car
+    </select>
+
+<!--    returnType是Map
+        select * from wang.t_car
+        * 可以取别名 那么查询出来的map的key就是取的别名-->
+    <select id="selectAllByMap" resultType="java.util.Map">
+        select * from wang.t_car
+    </select>
+
+    <select id="selectAll" resultType="Car">
+
+        select
+            id,
+            car_num carNum,
+            brand ,
+            guide_price guidePrice,
+            produce_time   produceTime,
+            car_type  carType
+        from wang.t_car
+    </select>
+
+    <select id="selectById" resultType="Car">
+        select
+            id,
+            car_num carNum,
+            brand ,
+            guide_price guidePrice,
+            produce_time   produceTime,
+            car_type  carType
+        from wang.t_car where id=#{id}
+    </select>
+
+
+
+
+</mapper>

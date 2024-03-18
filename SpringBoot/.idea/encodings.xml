@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/SpringBoot_001_QuickStart/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_002_Config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_002_Config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_003_ReadDataByYml/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_004_Profile/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_005_Maven_BootProfile/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_005_Maven_BootProfile/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_006_Config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_007_Junit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot_008_Mybaits/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/MavenStudy01/pom.xml" />
+        <option value="$PROJECT_DIR$/MavenStudy02/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-web/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-param/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-param-04/pom.xml" />
+        <option value="$PROJECT_DIR$/Select/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-web-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-proxy-03/pom.xml" />
+        <option value="$PROJECT_DIR$/MavenStudy-01/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-03-web/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-04-Select/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-01-param/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-05-advancedMapping/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-04-SelectActiveSQL/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-02-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-06-Cache/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-07-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/PageLimit/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

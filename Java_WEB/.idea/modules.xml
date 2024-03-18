@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Java_WEB.iml" filepath="$PROJECT_DIR$/Java_WEB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShiYan_001.iml" filepath="$PROJECT_DIR$/ShiYan_001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShiYan_002_JSTL/ShiYan_002_JSTL.iml" filepath="$PROJECT_DIR$/ShiYan_002_JSTL/ShiYan_002_JSTL.iml" />
+    </modules>
+  </component>
+</project>

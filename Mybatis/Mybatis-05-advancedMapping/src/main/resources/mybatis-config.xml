@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+
+    <settings>
+        <!--        设置全局懒加载         -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+    
+    <typeAliases>
+        <package name="com.wang.POJO"/>
+    </typeAliases>
+
+
+    <environments default="wang">
+
+        <environment id="wang">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${Driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <mappers>
+        <package name="com.wang.Mapper"/>
+    </mappers>
+
+</configuration>
