@@ -32,7 +32,7 @@ public class DBUtil {
     }
 
 
-    public static void closeConnnection(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet){
+    public static void closeConnection(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet){
 
         if(resultSet!=null){
             try {

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 public class UserMapperTest {
 
     @Test
-    public void testGetUserById() {
+    public void testGetUserByUsername() {
         UserMapper userMapper = new UserMapper();
-        User user = userMapper.getUserById(1);
+        User user = userMapper.getUserById("");
         System.out.println(user);
     }
 }

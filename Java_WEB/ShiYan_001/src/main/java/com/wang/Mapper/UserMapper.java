@@ -10,20 +10,20 @@ import java.sql.SQLException;
 
 public class UserMapper {
 
-    public User getUserById(int id)
+    public User getUserById(String username)
     {
         Connection connection = null;
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
 
-        String sql = "select * from wang.tb_user where id = ?";
+        String sql = "select * from wang.tb_user where name = ?";
 
         User user = new User();
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setInt(1,id);
+            preparedStatement.setString(1,username);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
@@ -41,7 +41,7 @@ public class UserMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            DBUtil.closeConnnection(connection, preparedStatement, resultSet);
+            DBUtil.closeConnection(connection, preparedStatement, resultSet);
         }
 
 
@@ -72,7 +72,7 @@ public class UserMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            DBUtil.closeConnnection(connection, preparedStatement, resultSet);
+            DBUtil.closeConnection(connection, preparedStatement, resultSet);
         }
 
         return count;
@@ -99,7 +99,7 @@ public class UserMapper {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            DBUtil.closeConnnection(connection, preparedStatement, resultSet);
+            DBUtil.closeConnection(connection, preparedStatement, resultSet);
         }
 
 

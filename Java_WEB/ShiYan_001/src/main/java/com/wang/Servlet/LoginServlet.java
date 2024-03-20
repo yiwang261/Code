@@ -1,5 +1,7 @@
 package com.wang.Servlet;
 
+import com.wang.Bean.User;
+import com.wang.Service.UserService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +13,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class LoginServlet  extends HttpServlet{
+
+    private UserService userService = new UserService();
     String username;
     String password;
     @Override
@@ -19,10 +23,10 @@ public class LoginServlet  extends HttpServlet{
         password = req.getParameter("password");
 
 
-
         System.out.println("当前在线人数：" +OnlineListener.count);
-        if("admin".equals(username)&&"123456".equals(password)){
-            req.getSession().setAttribute("login","true");
+        if(userService.checkLogin(username,password)){
+            HttpSession session = req.getSession();
+            session.setAttribute("login","true");
             RequestDispatcher dispatcher= req.getRequestDispatcher("index.jsp");
             dispatcher.forward(req,resp);
         }else {
