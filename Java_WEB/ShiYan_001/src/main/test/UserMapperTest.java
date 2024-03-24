@@ -7,7 +7,8 @@ public class UserMapperTest {
     @Test
     public void testGetUserByUsername() {
         UserMapper userMapper = new UserMapper();
-        User user = userMapper.getUserById("");
+        User user = userMapper.getUserByUserName("admin");
         System.out.println(user);
+
     }
 }

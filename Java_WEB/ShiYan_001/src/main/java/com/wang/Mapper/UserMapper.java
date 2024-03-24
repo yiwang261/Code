@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class UserMapper {
 
-    public User getUserById(String username)
+    public User getUserByUserName(String username)
     {
         Connection connection = null;
         ResultSet resultSet = null;

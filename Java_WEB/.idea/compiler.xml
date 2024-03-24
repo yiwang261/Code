@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/untitled1/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Web_01" />
+        <module name="ShiYan_003_Servlet" />
         <module name="ShiYan_001" />
         <module name="JWT" />
+        <module name="Web_01" />
         <module name="ShiYan_002_JSTL" />
+        <module name="untitled22" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="11" />
+      <module name="demo.main" target="11" />
+      <module name="demo.test" target="11" />
+      <module name="demo1" target="11" />
+      <module name="demo1.main" target="11" />
+      <module name="demo1.test" target="11" />
+      <module name="ear" target="1.5" />
+      <module name="ejbs" target="1.8" />
+      <module name="logging" target="1.8" />
+      <module name="primary-source" target="1.8" />
+      <module name="projects" target="1.5" />
+      <module name="servlet" target="1.8" />
+      <module name="servlets" target="1.5" />
+      <module name="ShiYan_004" target="11" />
       <module name="ShiYan_01" target="21" />
+      <module name="untitled" target="1.8" />
+      <module name="untitled1" target="1.8" />
+      <module name="untitled12" target="1.5" />
+      <module name="untitled22" target="1.8" />
+      <module name="untitled3" target="1.8" />
       <module name="Web_001" target="11" />
     </bytecodeTargetLevel>
   </component>

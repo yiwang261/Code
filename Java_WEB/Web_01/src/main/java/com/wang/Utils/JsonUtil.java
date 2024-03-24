@@ -1,21 +1,23 @@
 package com.wang.Utils;
 
-public class JsonUtil {
+import com.alibaba.fastjson2.JSON;
+
+public class JsonUtil <T>{
     private int code;
     private String msg;
-    private Object data;
+    private T data;
 
     public JsonUtil() {}
-    public JsonUtil(int code, String msg, Object data) {
+    public JsonUtil(int code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
-    public static JsonUtil success(Object data) {
-        return new JsonUtil(200, "success", data);
+    public static <T> String success(T data) {
+        return JSON.toJSONString(new JsonUtil<>(200, "success", data));
     }
-    public static JsonUtil error(String msg) {
-        return new JsonUtil(500, msg, null);
+    public static  String error(String msg) {
+        return JSON.toJSONString(new JsonUtil<>(500, msg, null));
     }
 
 
@@ -39,7 +41,7 @@ public class JsonUtil {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

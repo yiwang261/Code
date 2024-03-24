@@ -7,7 +7,7 @@ public class UserService {
 
     private UserMapper userMapper = new UserMapper();
     public User getUserByUsername(String username){
-        return userMapper.getUserById(username);
+        return userMapper.getUserByUserName(username);
     }
 
     public Boolean checkLogin(String username, String password){
